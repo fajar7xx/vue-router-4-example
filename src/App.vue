@@ -1,37 +1,23 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <div id="nav">
+      <router-link :to="{ name: 'Home' }">Home</router-link>
+      <router-link :to="{ name: 'About' }">About</router-link>
+      <router-link :to="{ name: 'Brazil' }">Brazil</router-link>
+      <router-link :to="{ name: 'Hawaii' }">Hawaii</router-link>
+      <router-link :to="{ name: 'Indonesia' }">Indonesia</router-link>
+      <router-link :to="{ name: 'Panama' }">Panama</router-link>
+    </div>
 
-    <br>
-    <router-link :to="{name: 'Home'}">Home</router-link> | 
-    <router-link :to="{name: 'About'}">About</router-link>
-
-    <router-view></router-view>
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
