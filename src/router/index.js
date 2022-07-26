@@ -10,6 +10,8 @@ const Hawaii = () => import("@/views/pages/Hawaii.vue");
 const Indonesia = () => import("@/views/pages/Indonesia.vue");
 const Panama = () => import("@/views/pages/Panama.vue");
 
+const DestinationView = () => import("@/views/DestinationShow.vue")
+
 const routes = [
   {
     path: "/",
@@ -41,11 +43,17 @@ const routes = [
     name: "Panama",
     component: Panama,
   },
+  {
+    path: "/destination/:id",
+    name: "DestinationShow",
+    component: DestinationView
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  linkActiveClass: 'vue-school-active-link'
 });
 
 export default router;
