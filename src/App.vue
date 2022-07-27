@@ -1,17 +1,17 @@
 <script>
-import TheNavigation from "@/components/TheNavigation.vue"
-export default{
-  components:{
-    TheNavigation
-  }
-}
+import TheNavigation from "@/components/TheNavigation.vue";
+export default {
+  components: {
+    TheNavigation,
+  },
+};
 </script>
 
 <template>
   <div>
-    <TheNavigation/>
+    <TheNavigation />
     <div class="container">
-      <router-view></router-view>
+      <router-view :key="$route.path"></router-view>
     </div>
   </div>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
