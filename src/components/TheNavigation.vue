@@ -20,6 +20,7 @@ export default {
     >
       {{ destination.name }}
     </router-link>
+    <router-link :to="{name: 'Protected'}">Dashboard</router-link>
   </div>
 </template>
 
