@@ -19,7 +19,10 @@ export default {
         logout(){
             window.user = null
             this.$router.push({
-                name: 'Home'
+                name: 'Home',
+                query: {
+                    logout: null
+                }
             })
         }
     }

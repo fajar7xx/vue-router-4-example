@@ -3,26 +3,29 @@ import sourceData from '@/data.json'
 // import Home from '@/views/Home.vue'
 // import About from '@/views/About.vue'
 
-const Home = () => import("@/views/Home.vue");
+const Home  = () => import("@/views/Home.vue");
 const About = () => import("@/views/About.vue");
 
-const Brazil = () => import("@/views/pages/Brazil.vue");
-const Hawaii = () => import("@/views/pages/Hawaii.vue");
+const Brazil    = () => import("@/views/pages/Brazil.vue");
+const Hawaii    = () => import("@/views/pages/Hawaii.vue");
 const Indonesia = () => import("@/views/pages/Indonesia.vue");
-const Panama = () => import("@/views/pages/Panama.vue");
+const Panama    = () => import("@/views/pages/Panama.vue");
 
 const DestinationView = () => import("@/views/DestinationShow.vue")
-const ExperienceView = () => import("@/views/ExperienceShow.vue")
-const NotFound = () => import("@/views/NotFound.vue")
-const Protected = () => import("@/views/Protected.vue")
-const Login = () => import('@/views/Login.vue')
-const Invoices = () => import('@/views/Invoices.vue')
+const ExperienceView  = () => import("@/views/ExperienceShow.vue")
+const NotFound        = () => import("@/views/NotFound.vue")
+const Protected       = () => import("@/views/Protected.vue")
+const Login           = () => import('@/views/Login.vue')
+const Invoices        = () => import('@/views/Invoices.vue')
+
+const LeftSidebar = () => import('@/components/LeftSidebar.vue')
 
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
+    alias: "/home"
   },
   {
     path: '/login',
@@ -32,7 +35,13 @@ const routes = [
   {
     path: "/protected",
     name: 'Protected',
-    component: Protected,
+    // component: Protected,
+    // use route name views
+    // karene lebih dari 1 component maka pakai s jadi components, teliti
+    components: {
+      default: Protected,
+      LeftSidebar
+    },
     meta: {
       requiresAuth: true
     }
@@ -40,7 +49,11 @@ const routes = [
   {
     path: "/invoices",
     name: "Invoices",
-    component: Invoices,
+    // component: Invoices,
+    components: {
+      default: Invoices,
+      LeftSidebar
+    },
     meta: {
       requiresAuth: true
     }
