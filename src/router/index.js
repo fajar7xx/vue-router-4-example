@@ -16,8 +16,19 @@ const ExperienceView = () => import("@/views/ExperienceShow.vue")
 const NotFound = () => import("@/views/NotFound.vue")
 const Protected = () => import("@/views/Protected.vue")
 const Login = () => import('@/views/Login.vue')
+const Invoices = () => import('@/views/Invoices.vue')
 
 const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
   {
     path: "/protected",
     name: 'Protected',
@@ -27,14 +38,12 @@ const routes = [
     }
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: "/invoices",
+    name: "Invoices",
+    component: Invoices,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: "/about",
@@ -139,7 +148,12 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   if(to.meta.requiresAuth && !window.user){
     // need to login if not already logged in
-    return {name: 'Login'}
+    return {
+      name: 'Login',
+      query: {
+        redirect: to.fullPath
+      }
+    }
   }
 })
 

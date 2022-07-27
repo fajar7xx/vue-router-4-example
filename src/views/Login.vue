@@ -37,7 +37,9 @@ export default {
         login(){
             // this is just fake auth
             window.user = this.username
-            this.$router.push({name: 'Protected'})
+            // this.$router.push({name: 'Protected'})
+            const redirectPath = this.$route.query.redirect || {name: 'Protected'}
+            this.$router.push(redirectPath)
         }
     }
 }
